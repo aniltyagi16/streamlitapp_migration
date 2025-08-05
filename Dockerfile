@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install Python dependencies
 COPY req.txt .
-RUN pip install --no-cache-dir -r req.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy app files into the container
 COPY . .
@@ -28,3 +28,4 @@ EXPOSE 8501
 
 # Set Streamlit to run on 0.0.0.0 so it's accessible outside container
 CMD ["streamlit", "run", "main.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
